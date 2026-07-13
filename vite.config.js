@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  base: '/campamento-jovenes-2026/',
   plugins: [
     react(),
     VitePWA({
@@ -16,7 +17,7 @@ export default defineConfig({
         background_color: '#2B1220',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
+        start_url: '/campamento-jovenes-2026/',
         icons: [
           {
             src: 'icons/icon-192.png',
