@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { dias, horario } from '../data/horario';
+import { responsables } from '../data/responsables';
 
 export default function Inicio() {
   // De momento mostramos siempre el dia 1 como ejemplo.
@@ -7,6 +8,7 @@ export default function Inicio() {
   const diaActual = dias[0];
   const eventosHoy = horario[diaActual.id] || [];
   const proxima = eventosHoy[0];
+  const responsable = responsables[diaActual.id];
 
   return (
     <div className="pantalla">
@@ -14,6 +16,11 @@ export default function Inicio() {
         <span className="eyebrow">Campamento Jovenes 2026</span>
         <div className="dia-numero">{diaActual.etiqueta}</div>
         <div className="dia-fecha">{diaActual.fechaTexto}</div>
+        {responsable && (
+          <div style={{ marginTop: 10 }}>
+            <span className="chip">Responsable del dia: {responsable}</span>
+          </div>
+        )}
       </div>
 
       {proxima && (

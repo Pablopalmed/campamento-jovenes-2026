@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { dias } from '../data/horario';
 import { laudes, completas } from '../data/oraciones';
 import { lecturas, lecturaPorDefecto } from '../data/lecturas';
 
@@ -8,23 +9,30 @@ const pestanas = [
   { id: 'lecturas', etiqueta: 'Lecturas' }
 ];
 
-function fechaDeHoy() {
-  const hoy = new Date();
-  const y = hoy.getFullYear();
-  const m = String(hoy.getMonth() + 1).padStart(2, '0');
-  const d = String(hoy.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
-}
-
 export default function Oracion() {
+  const [diaSeleccionado, setDiaSeleccionado] = useState(dias[0].id);
   const [tab, setTab] = useState('laudes');
-  const lecturaHoy = lecturas[fechaDeHoy()] || lecturaPorDefecto;
+
+  const dia = dias.find((d) => d.id === diaSeleccionado);
+  const lecturaDelDia = lecturas[dia?.fechaISO] || lecturaPorDefecto;
 
   return (
     <div className="pantalla">
       <div className="cabecera">
         <span className="eyebrow">Momento de oracion</span>
         <h1>Oracion</h1>
+      </div>
+
+      <div className="selector-dias">
+        {dias.map((d) => (
+          <button
+            key={d.id}
+            className={'dia-boton' + (d.id === diaSeleccionado ? ' activo' : '')}
+            onClick={() => setDiaSeleccionado(d.id)}
+          >
+            {d.etiqueta}
+          </button>
+        ))}
       </div>
 
       <div className="tabs-oracion">
@@ -40,6 +48,8 @@ export default function Oracion() {
       </div>
 
       <div className="contenido">
+        <div className="texto-atenuado" style={{ marginTop: -6 }}>{dia?.fechaTexto}</div>
+
         {tab === 'laudes' && (
           <div className="tarjeta">
             {laudes.map((bloque, i) => (
@@ -66,15 +76,15 @@ export default function Oracion() {
           <div className="tarjeta">
             <div className="bloque-oracion">
               <h3>Primera lectura</h3>
-              <p>{lecturaHoy.primera}</p>
+              <p>{lecturaDelDia.primera}</p>
             </div>
             <div className="bloque-oracion">
               <h3>Salmo responsorial</h3>
-              <p>{lecturaHoy.salmo}</p>
+              <p>{lecturaDelDia.salmo}</p>
             </div>
             <div className="bloque-oracion">
               <h3>Evangelio</h3>
-              <p>{lecturaHoy.evangelio}</p>
+              <p>{lecturaDelDia.evangelio}</p>
             </div>
           </div>
         )}

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { dias, horario } from '../data/horario';
+import { responsables } from '../data/responsables';
 
 export default function Horario() {
   const [diaSeleccionado, setDiaSeleccionado] = useState(dias[0].id);
   const eventos = horario[diaSeleccionado] || [];
   const dia = dias.find((d) => d.id === diaSeleccionado);
+  const responsable = responsables[diaSeleccionado];
 
   return (
     <div className="pantalla">
@@ -27,7 +29,10 @@ export default function Horario() {
 
       <div className="contenido">
         <div className="tarjeta">
-          <div className="texto-atenuado" style={{ marginBottom: 4 }}>{dia?.fechaTexto}</div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+            <div className="texto-atenuado">{dia?.fechaTexto}</div>
+            {responsable && <span className="chip">Responsable: {responsable}</span>}
+          </div>
           {eventos.map((ev, i) => (
             <div className="franja-horaria" key={i}>
               <span className="etiqueta-hora">{ev.hora}</span>

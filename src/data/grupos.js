@@ -1,21 +1,18 @@
-// Datos de EJEMPLO para probar la app. Se sustituiran por los grupos reales.
+// Datos de EJEMPLO para probar la app. Se sustituira por los grupos reales.
 export const grupos = [
   {
-    id: 'juniors-a',
-    nombre: 'Juniors A',
-    monitor: 'Pablo',
+    id: 'grupo-1',
+    nombre: 'Grupo 1',
     integrantes: ['Marc', 'Laura', 'Nuria', 'Pol', 'Xavi', 'Alba']
   },
   {
-    id: 'juniors-b',
-    nombre: 'Juniors B',
-    monitor: 'Clara',
+    id: 'grupo-2',
+    nombre: 'Grupo 2',
     integrantes: ['Jan', 'Berta', 'Oriol', 'Marta', 'Enric']
   },
   {
-    id: 'juniors-c',
-    nombre: 'Juniors C',
-    monitor: 'David',
+    id: 'grupo-3',
+    nombre: 'Grupo 3',
     integrantes: ['Judit', 'Roc', 'Anna', 'Bruno', 'Sara', 'Toni']
   }
 ];
