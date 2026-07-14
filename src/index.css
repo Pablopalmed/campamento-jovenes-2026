@@ -236,16 +236,18 @@ p {
   padding: 0;
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-direction: column;
 }
 
 .lista-integrantes li {
-  background: rgba(43, 18, 32, 0.05);
-  border-radius: 8px;
-  padding: 4px 10px;
-  font-size: 0.85rem;
+  padding: 9px 2px;
+  font-size: 0.92rem;
   color: var(--color-cream-dim);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lista-integrantes li:last-child {
+  border-bottom: none;
 }
 
 .tabs-oracion {
