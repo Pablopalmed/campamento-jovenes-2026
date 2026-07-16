@@ -29,15 +29,14 @@ export const grupos = [
   {
     id: 'grupo-3',
     nombre: 'Grupo 3',
-    // OJO: Pablo me paso esta lista identica a la del Grupo 2 -> pendiente de confirmar/corregir
     integrantes: [
-      'Eduardo Palop Medina',
-      'Amparo García Medina',
-      'Clara Ibáñez Del Amor',
-      'Alejandro Muñoz Benavent',
-      'Natalia Ballesteros Colomino',
-      'Lucía Company',
-      'Maria Beguer Andreu'
+      'Pablo Palop Medina',
+      'Juan Daniel Muñoz Palencia',
+      'Albert Ortí Moreno',
+      'Sara Torres Mora',
+      'Candela Rodríguez Marín',
+      'María Dolores Ferrandis Alós',
+      'Diego Tarazona Gonzales '
     ]
   },
   {
